@@ -6,7 +6,7 @@ http://web.media.mit.edu/~raskar/photo/code.pdf
 Adapted slightly for doing "mixed" Poisson Image Editing [Perez et al.]
 Paper: http://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf
 """
-from __future__ import division
+
 import numpy as np 
 import scipy.fftpack
 import scipy.ndimage
@@ -99,7 +99,7 @@ def blit_images(im_top,im_back,scale_grad=1.0,mode='max'):
     im_res = np.zeros_like(im_top)
 
     # frac of gradients which come from source:
-    for ch in xrange(im_top.shape[2]):
+    for ch in range(im_top.shape[2]):
         ims = im_top[:,:,ch]
         imd = im_back[:,:,ch]
 
@@ -203,7 +203,7 @@ if __name__=='__main__':
 
     # plt.imshow(im_alpha_L)
     # plt.show()
-    for i in xrange(500,im_alpha_L.shape[1],5):
+    for i in range(500,im_alpha_L.shape[1],5):
         l_actual = im_actual_L[i,:]#-im_actual_L[i,:-1]
         l_alpha = im_alpha_L[i,:]#-im_alpha_L[i,:-1]
         l_poisson = im_poisson_L[i,:]#-im_poisson_L[i,:-1]
